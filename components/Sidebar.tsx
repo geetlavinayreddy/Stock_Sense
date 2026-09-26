@@ -10,7 +10,8 @@ import {
   ArrowUpFromLine, 
   History,
   LogOut,
-  Package2
+  Package2,
+  Sparkles,
 } from "lucide-react";
 
 import { QRPassModal } from "./QRPassModal";
@@ -22,6 +23,7 @@ const links = [
   { href: "/orders/receipts", label: "Receipts", icon: ArrowDownToLine },
   { href: "/orders/deliveries", label: "Deliveries", icon: ArrowUpFromLine },
   { href: "/history", label: "Ledger", icon: History },
+  { href: "/ai", label: "AI Center", icon: Sparkles },
 ];
 
 export function Sidebar({ user }: { user: any }) {
