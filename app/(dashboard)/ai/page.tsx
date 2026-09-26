@@ -124,7 +124,7 @@ export default async function AiCommandCenterPage() {
                   </span>
                 </div>
                 <p className="mt-1 text-sm leading-5 text-zinc-500">{capability.description}</p>
-                {capability.status === "planned" && <span className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-zinc-500">Coming next <ArrowRight className="h-3 w-3" /></span>}
+                {capability.status === "planned" ? <span className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-zinc-500">Coming next <ArrowRight className="h-3 w-3" /></span> : <span className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-emerald-600">Open module <ArrowRight className="h-3 w-3" /></span>}
               </div>
             </div>
           ))}

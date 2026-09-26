@@ -24,6 +24,7 @@ const links = [
   { href: "/orders/deliveries", label: "Deliveries", icon: ArrowUpFromLine },
   { href: "/history", label: "Ledger", icon: History },
   { href: "/ai", label: "AI Center", icon: Sparkles },
+  { href: "/ai/voice", label: "Voice AI", icon: Sparkles },
 ];
 
 export function Sidebar({ user }: { user: any }) {

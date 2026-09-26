@@ -29,14 +29,14 @@ export const aiCapabilities: AiCapability[] = [
     id: "operations-plan",
     name: "Operations planning",
     description: "Turn inventory signals into a focused daily action plan.",
-    status: "planned",
+    status: "ready",
     requiresApproval: true,
   },
   {
     id: "voice-commands",
     name: "Voice commands",
     description: "Ask for stock levels, summaries, and guided actions by voice.",
-    status: "planned",
+    status: "ready",
     requiresApproval: true,
   },
   {
@@ -45,6 +45,13 @@ export const aiCapabilities: AiCapability[] = [
     description: "Prepare repeatable tasks for approval before anything changes stock.",
     status: "planned",
     requiresApproval: true,
+  },
+  {
+    id: "growth-insights",
+    name: "Account growth insights",
+    description: "Understand adoption, team momentum, and the next best workflow.",
+    status: "ready",
+    requiresApproval: false,
   },
 ];
 
