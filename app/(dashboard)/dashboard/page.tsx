@@ -48,9 +48,14 @@ export default async function DashboardPage() {
 
   return (
     <div className="space-y-8">
-      <div>
-        <h1 className="text-2xl font-semibold tracking-tight text-zinc-900">Dashboard</h1>
-        <p className="mt-2 text-sm text-zinc-500">Your inventory operations snapshot for today.</p>
+      <div className="relative overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950 px-6 py-7 text-white shadow-xl shadow-zinc-900/10 sm:px-8">
+        <div className="absolute -right-16 -top-24 h-64 w-64 rounded-full bg-emerald-300/15 blur-3xl" />
+        <div className="absolute -bottom-32 right-32 h-56 w-56 rounded-full bg-sky-300/10 blur-3xl" />
+        <div className="relative">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-emerald-300">Operations overview</p>
+          <h1 className="mt-3 text-3xl font-semibold tracking-[-0.04em]">Good morning, let&apos;s keep stock moving.</h1>
+          <p className="mt-3 max-w-xl text-sm leading-6 text-zinc-400">Your inventory operations snapshot for today, with the signals that need attention first.</p>
+        </div>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -60,7 +65,7 @@ export default async function DashboardPage() {
             <Link
               key={metric.label}
               href={metric.href}
-              className="group relative overflow-hidden rounded-xl border border-zinc-200 bg-white/60 backdrop-blur-sm p-5 shadow-sm transition-all hover:border-zinc-300 hover:shadow-md"
+              className="group relative overflow-hidden rounded-2xl border border-zinc-200 bg-white/75 p-5 shadow-sm backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-lg"
             >
               <div className="flex items-center justify-between">
                 <p className="text-sm font-medium text-zinc-500">{metric.label}</p>
@@ -69,15 +74,21 @@ export default async function DashboardPage() {
                 </div>
               </div>
               <div className="mt-4 flex items-baseline gap-2">
-                <p className="text-3xl font-semibold tracking-tight text-zinc-900">{metric.value}</p>
+                <p className="text-3xl font-semibold tracking-[-0.04em] text-zinc-900">{metric.value}</p>
               </div>
             </Link>
           );
         })}
       </div>
 
-      <div className="pt-8">
-        <h2 className="text-lg font-medium tracking-tight text-zinc-900 mb-4">Quick Actions</h2>
+      <div className="pt-4">
+        <div className="mb-4 flex items-end justify-between">
+          <div>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-zinc-400">Shortcuts</p>
+            <h2 className="mt-1 text-lg font-semibold tracking-tight text-zinc-900">Quick Actions</h2>
+          </div>
+          <span className="hidden text-xs text-zinc-400 sm:block">Move faster with one click</span>
+        </div>
         <div className="grid gap-4 md:grid-cols-2">
           {shortcuts.map((item) => {
             const Icon = item.icon;
@@ -85,7 +96,7 @@ export default async function DashboardPage() {
               <Link
                 key={item.title}
                 href={item.href}
-                className="group flex items-center gap-4 rounded-xl border border-zinc-200 bg-white/60 backdrop-blur-sm p-4 shadow-sm transition-all hover:border-zinc-300 hover:shadow-md"
+                className="group flex items-center gap-4 rounded-2xl border border-zinc-200 bg-white/75 p-4 shadow-sm backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-lg"
               >
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-zinc-50 border border-zinc-100 group-hover:bg-white transition-colors">
                   <Icon className="h-5 w-5 text-zinc-600" />

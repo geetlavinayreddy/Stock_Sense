@@ -23,7 +23,7 @@ StockSense brings clarity to your warehouse operations with real-time stock ledg
 
 ## How to use it locally
 
-By default, StockSense runs instantly using a local **SQLite** database (`prisma/dev.db`), meaning you don't need any complex infrastructure to try it out.
+For local development, StockSense uses the PostgreSQL connection configured by `DATABASE_URL`. Docker Compose provides a ready-to-use local database.
 
 1. **Clone the repository:**
    ```bash
@@ -40,7 +40,7 @@ By default, StockSense runs instantly using a local **SQLite** database (`prisma
    ```bash
    cp .env.example .env
    ```
-   *(Update your `.env` with a secure `SESSION_SECRET` and `RESEND_API_KEY` for password resets if needed).*
+   *(Update your `.env` with a secure `SESSION_SECRET` and `RESEND_API_KEY` for password resets if needed.)*
 
 4. **Initialize Database:**
    ```bash
@@ -60,10 +60,13 @@ By default, StockSense runs instantly using a local **SQLite** database (`prisma
 
 ## Deploying to Production (Vercel)
 
-If you plan to deploy StockSense to Vercel or another serverless platform, you **must use a cloud database** (like Vercel Postgres, Supabase, or Neon) since Vercel does not support local SQLite files.
-1. Create a cloud Postgres database.
-2. Change the `provider` in `prisma/schema.prisma` from `"sqlite"` to `"postgresql"`.
-3. Set your `DATABASE_URL` in Vercel to your new cloud database connection string.
-4. Deploy!
+StockSense is configured for Vercel through `vercel.json`.
+
+1. Create a managed PostgreSQL database through Vercel Marketplace, Neon, or Supabase.
+2. Import this GitHub repository into Vercel.
+3. Add `DATABASE_URL`, `SESSION_SECRET`, `RESEND_API_KEY`, and `EMAIL_FROM` under **Project Settings > Environment Variables**.
+4. Deploy. Vercel runs `npm run build`, which generates Prisma Client, applies migrations, and builds the Next.js app.
+
+The included `docker-compose.yml` remains the quickest way to run PostgreSQL locally.
 
 *(Note: This repository includes a placeholder `requirements.txt` for tooling compatibility, but the project is Node.js/TypeScript and dependencies are managed via `package.json`).*
